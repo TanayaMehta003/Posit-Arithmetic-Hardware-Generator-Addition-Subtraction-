@@ -1,0 +1,10 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../tb_decoder.cpp in debug mode
+   Compiling ../../../../decoder.cpp in debug mode
+   Generating csim.exe
+Original posit (binary): 00010001001000010000000000000110
+Original posit (binary): 00010001000100010001000100010000
+Decoded posit (binary): 00010001000110010000100010001011
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

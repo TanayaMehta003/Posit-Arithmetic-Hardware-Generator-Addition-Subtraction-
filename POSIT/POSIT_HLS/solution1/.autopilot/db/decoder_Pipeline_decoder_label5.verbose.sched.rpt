@@ -1,0 +1,153 @@
+
+
+================================================================
+== Vitis HLS Report for 'decoder_Pipeline_decoder_label5'
+================================================================
+* Date:           Sat Nov  9 22:01:46 2024
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        POSIT_HLS
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: artix7
+* Target device:  xc7a12ti-csg325-1L
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  4.312 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                  |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- decoder_label5  |        ?|        ?|         1|          1|          1|     ?|       yes|
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.61>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%l = alloca i32 1"   --->   Operation 4 'alloca' 'l' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%j_3 = alloca i32 1"   --->   Operation 5 'alloca' 'j_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%p_Val2_s = alloca i32 1"   --->   Operation 6 'alloca' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%mant2_new_V_1_reload_read = read i29 @_ssdm_op_Read.ap_auto.i29, i29 %mant2_new_V_1_reload"   --->   Operation 7 'read' 'mant2_new_V_1_reload_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%j_2_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %j_2"   --->   Operation 8 'read' 'j_2_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (1.61ns)   --->   "%store_ln0 = store i29 0, i29 %p_Val2_s"   --->   Operation 9 'store' 'store_ln0' <Predicate = true> <Delay = 1.61>
+ST_1 : Operation 10 [1/1] (1.61ns)   --->   "%store_ln0 = store i32 %j_2_read, i32 %j_3"   --->   Operation 10 'store' 'store_ln0' <Predicate = true> <Delay = 1.61>
+ST_1 : Operation 11 [1/1] (1.61ns)   --->   "%store_ln0 = store i32 28, i32 %l"   --->   Operation 11 'store' 'store_ln0' <Predicate = true> <Delay = 1.61>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.cond110"   --->   Operation 12 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 4.31>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%l_3 = load i32 %l"   --->   Operation 13 'load' 'l_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%j = load i32 %j_3"   --->   Operation 14 'load' 'j' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 15 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.99ns)   --->   "%or_ln153 = or i32 %l_3, i32 %j" [decoder.cpp:153]   --->   Operation 16 'or' 'or_ln153' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %or_ln153, i32 31" [decoder.cpp:153]   --->   Operation 17 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%br_ln153 = br i1 %tmp, void %for.inc121, void %for.inc135.preheader.exitStub" [decoder.cpp:153]   --->   Operation 18 'br' 'br_ln153' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%p_Val2_load_5 = load i29 %p_Val2_s"   --->   Operation 19 'load' 'p_Val2_load_5' <Predicate = (!tmp)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%specloopname_ln779 = specloopname void @_ssdm_op_SpecLoopName, void @empty_9"   --->   Operation 20 'specloopname' 'specloopname_ln779' <Predicate = (!tmp)> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%trunc_ln779 = trunc i32 %l_3"   --->   Operation 21 'trunc' 'trunc_ln779' <Predicate = (!tmp)> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%p_Result_s = bitselect i1 @_ssdm_op_BitSelect.i1.i29.i29, i29 %mant2_new_V_1_reload_read, i29 %trunc_ln779"   --->   Operation 22 'bitselect' 'p_Result_s' <Predicate = (!tmp)> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%p_Result_30 = bitset i29 @_ssdm_op_BitSet.i29.i29.i32.i1, i29 %p_Val2_load_5, i32 %j, i1 %p_Result_s"   --->   Operation 23 'bitset' 'p_Result_30' <Predicate = (!tmp)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (2.70ns)   --->   "%l_4 = add i32 %l_3, i32 4294967295" [decoder.cpp:155]   --->   Operation 24 'add' 'l_4' <Predicate = (!tmp)> <Delay = 2.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 25 [1/1] (2.70ns)   --->   "%j_9 = add i32 %j, i32 4294967295" [decoder.cpp:153]   --->   Operation 25 'add' 'j_9' <Predicate = (!tmp)> <Delay = 2.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 26 [1/1] (1.61ns)   --->   "%store_ln153 = store i29 %p_Result_30, i29 %p_Val2_s" [decoder.cpp:153]   --->   Operation 26 'store' 'store_ln153' <Predicate = (!tmp)> <Delay = 1.61>
+ST_2 : Operation 27 [1/1] (1.61ns)   --->   "%store_ln153 = store i32 %j_9, i32 %j_3" [decoder.cpp:153]   --->   Operation 27 'store' 'store_ln153' <Predicate = (!tmp)> <Delay = 1.61>
+ST_2 : Operation 28 [1/1] (1.61ns)   --->   "%store_ln153 = store i32 %l_4, i32 %l" [decoder.cpp:153]   --->   Operation 28 'store' 'store_ln153' <Predicate = (!tmp)> <Delay = 1.61>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%br_ln153 = br void %for.cond110" [decoder.cpp:153]   --->   Operation 29 'br' 'br_ln153' <Predicate = (!tmp)> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%p_Val2_load = load i29 %p_Val2_s"   --->   Operation 30 'load' 'p_Val2_load' <Predicate = (tmp)> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i29P0A, i29 %mant2_new_new_V_1_out, i29 %p_Val2_load"   --->   Operation 31 'write' 'write_ln0' <Predicate = (tmp)> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 32 'ret' 'ret_ln0' <Predicate = (tmp)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 1.61ns
+The critical path consists of the following:
+	'alloca' operation ('__Val2__') [6]  (0 ns)
+	'store' operation ('store_ln0') of constant 0 on local variable '__Val2__' [9]  (1.61 ns)
+
+ <State 2>: 4.31ns
+The critical path consists of the following:
+	'load' operation ('j') on local variable 'j' [15]  (0 ns)
+	'add' operation ('j', decoder.cpp:153) [27]  (2.7 ns)
+	'store' operation ('store_ln153', decoder.cpp:153) of variable 'j', decoder.cpp:153 on local variable 'j' [29]  (1.61 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
