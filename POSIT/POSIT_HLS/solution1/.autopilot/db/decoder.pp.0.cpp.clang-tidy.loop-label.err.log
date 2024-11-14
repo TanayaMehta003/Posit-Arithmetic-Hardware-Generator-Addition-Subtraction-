@@ -1,5 +1,0 @@
-26 errors generated.
-Error while processing C:\Users\tanay\Documents\FPGA\POSIT\POSIT_HLS\solution1\.autopilot\db\decoder.pp.0.cpp.
-clang-tidy applied 130 of 130 suggested fixes.
-Suppressed 108 warnings (108 in non-user code).
-Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
